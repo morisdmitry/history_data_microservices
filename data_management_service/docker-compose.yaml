@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "8050:5000"
+    environment:
+      - REDIS_HOST=172.24.0.1:6377
+      - KAFKA_HOST=192.168.176.1:9092
+      - KAFKA_TOPIC=topic2
+

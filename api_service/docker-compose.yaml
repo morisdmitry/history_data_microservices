@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.17-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./data/rabbitmq_data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=login
+      - RABBITMQ_DEFAULT_PASS=pass
+
+volumes:
+  rabbitmq_data:
