@@ -1,9 +1,0 @@
-version: '3.9'
-services:
-  kafka-gui:
-    image: landoop/kafka-topics-ui:0.9.4
-    container_name: kafka-gui
-    ports:
-      - "8800:8000"
-    environment:
-      "KAFKA_REST_PROXY_URL": "http://192.168.176.1:9092"

@@ -6,4 +6,4 @@ class RedisMapper(base_mapper.BaseMapper):
         super().__init__()
 
     async def add(self, message):
-        await self.redisdb.sadd(f'keys:{message["period"]}', f'{message["key"]}')
+        await self.redisdb.sadd(f'keys:{message["symbol"]}:{message["period"]}', f'{message["key"]}')

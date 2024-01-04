@@ -4,4 +4,4 @@ rabbitmq_login: "login"
 rabbitmq_password: "pass"
 rabbitmq_queue: "data_receiver_queue"
 
-redis_url: "redis://localhost:6379"
+redis_url: "redis://localhost:6310"

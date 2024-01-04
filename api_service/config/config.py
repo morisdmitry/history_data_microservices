@@ -21,4 +21,4 @@ def recieve_config(env: str) -> ConfigModel:
     return ConfigModel(**config_data)
 
 
-config = recieve_config("dev")
+# config = recieve_config("dev")

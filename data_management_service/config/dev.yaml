@@ -3,6 +3,6 @@ rabbitmq_port: 5672
 rabbitmq_login: "login"
 rabbitmq_password: "pass"
 rabbitmq_consumer_queue_name: "data_process_queue"
-mongo_url: "localhost:27017"
+mongo_url: "localhost:27010"
 mongo_db: "application"
-redis_url: "redis://localhost:6379"
+redis_url: "redis://localhost:6310"

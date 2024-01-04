@@ -1,8 +1,8 @@
 from datetime import datetime, time
 
 
-async def get_only_new_periods(database, period, periods):
-    key_pattern = f"keys:{period}"
+async def get_only_new_periods(database, period, periods,  symbol):
+    key_pattern = f"keys:{symbol}:{period}"
 
     keys = []
     db_keys = await database.keys(key_pattern)

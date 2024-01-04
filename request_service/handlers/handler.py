@@ -4,19 +4,17 @@ from get_application import get_application
 import ssl
 
 
-async def process_response(response_json, time_period, suffix_key: str):
+async def process_response(symbol, response_json, time_period, suffix_key: str):
     # pass
     app = get_application()
-    try:
-        message = {}
-        message["key"] = suffix_key
-        message["period"] = time_period
-        message["value"] = response_json
-        # await producer.send("topic2", value=message)
-        await app.rabbit_mq.publish(message, app.config.rabbitmq_producer_queue_name)
-    finally:
-        # await producer.stop()
-        pass
+    message = {
+        'symbol': symbol,
+        'key': suffix_key,
+        'period': time_period,
+        'value': response_json
+    }
+    await app.rabbit_mq.publish(message, app.config.rabbitmq_producer_queue_name)
+
 
 
 async def fetch(url, params, msg, session: aiohttp.ClientSession, retries=3):
@@ -63,9 +61,7 @@ async def process_message(msg):
             "limit": 1000,
         }
 
-        # Process the response and return the processed data
         async with aiohttp.ClientSession() as session:
-            # print(f"params {params}")
             try:
                 response_json = await fetch(
                     get_klines_url,
@@ -73,10 +69,9 @@ async def process_message(msg):
                     msg,
                     session,
                 )
-                # Process the response asynchronously
 
                 asyncio.create_task(
-                    process_response(response_json, msg["period"], msg["range"])
+                    process_response(msg["symbol"], response_json, msg["period"], msg["range"])
                 )
             except Exception as e:
                 # pass

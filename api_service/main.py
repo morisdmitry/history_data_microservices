@@ -6,7 +6,6 @@ from config.config import recieve_config
 from get_application import get_application
 from api.handlers import hostory_data
 
-
 # tests
 
 

@@ -2,11 +2,11 @@ version: '3'
 
 services:
  
-  mongo_db:
+  mongo-db-hostory:
     image: mongo
     container_name: "mongo_db"
     ports:
-      - "27017:27017"
+      - "27010:27017"
     volumes:
       - ./mongo_data/db:/data/db
       - ./mongo_dump/dump:/data/dump

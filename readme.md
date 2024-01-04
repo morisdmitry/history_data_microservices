@@ -1,3 +1,6 @@
+working on python3.10
+
+
 # history data microservices
 
 for recieving klines data and store it to database
@@ -31,9 +34,13 @@ service just create message brocker
 
 ## How to run?
 
-1. run container into kafka_service
-2. run databases containers into data_management_service and make init mongodb
-3. run install all requirements in services and run `python main.py` into all services
+
+
+
+1. run api_service (docker-compose rabbitmq and main.py)
+2. run request_service
+3. run data_management_service (docker-compose mongo redis and main.py)
+4. go to api_service host and make endpoint
 
 # TODO
 
